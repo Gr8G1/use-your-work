@@ -1,0 +1,9 @@
+{
+  "release-type": "node",
+  "bump-minor-pre-major": true,
+  "changelog-sections": {
+    "Breaking Changes": ["Break:"],
+    "New Features": ["Feat:"],
+    "Bug Fixes": ["Fix:"]
+  }
+}

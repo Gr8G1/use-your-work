@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    if: contains(github.event.head_commit.message, 'Release')
+    if: contains(github.event.head_commit.message, 'Break') || contains(github.event.head_commit.message, 'Fix') || contains(github.event.head_commit.message, 'Feat')
     runs-on: ubuntu-latest
 
     steps:
@@ -35,22 +35,13 @@ jobs:
       - name: 🧪 Run Tests
         run: npm test
 
-      - name: 🏷️ Create Tag
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          if git rev-parse "v$VERSION" >/dev/null 2>&1; then
-            echo "Tag v$VERSION already exists. Skipping..."
-          else
-            git tag -a "v$VERSION" -m "Release v$VERSION"
-            git push origin "v$VERSION"
-          fi
-
       - name: 🏷️ Generate Release PR
         id: release
         uses: googleapis/release-please-action@v4
         with:
           release-type: node
-          skip-github-pull-request: true
+          config-file: .release-please-config.json
+          token: ${{ secrets.GH_PAT }}
 
       - name: 🚀 Publish to NPM
         run: npm publish --access public
