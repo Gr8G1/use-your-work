@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.3](https://github.com/Gr8G1/use-your-work/compare/v1.1.2...v1.1.3) (2025-03-18)
+
+
+### Bug Fixes
+
+* v1.1.2 ([b132d33](https://github.com/Gr8G1/use-your-work/commit/b132d332282714f175a4b5cf47b09a5f2e969ec7))
+* v1.1.2 - test ([17bf5b2](https://github.com/Gr8G1/use-your-work/commit/17bf5b298df6f54383d3763d4ca2cf6c5244151f))
+
 ## [1.1.2](https://github.com/Gr8G1/use-your-work/compare/v1.1.1...v1.1.2) (2025-03-18)
 
 
