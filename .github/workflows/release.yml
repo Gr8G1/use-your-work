@@ -1,0 +1,48 @@
+name: 🚀 Release & Publish to NPM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    if: contains(github.event.head_commit.message, 'Release')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 🔑 Set Git Credentials
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/Gr8G1/use-your-work.git
+
+      - name: 📦 Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: 📥 Install Dependencies
+        run: npm install
+
+      - name: 🧪 Run Tests
+        run: npm test
+
+      - name: 🏷️ Generate Release PR
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          release-type: node
+          skip-github-pull-request: true
+
+      - name: 🚀 Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

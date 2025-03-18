@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "types": ["jest", "@testing-library/react", "@testing-library/jest-dom"]
+  },
+  "include": ["src", "test"]
+}
