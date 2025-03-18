@@ -16,10 +16,9 @@
     "require": "./dist/index.js"
   },
   "scripts": {
-    "build": "rollup -c && echo '🚀 Build completed!'",
+    "build": "rollup -c && cp src/index.d.ts dist/index.d.ts && echo '🚀 Build completed!'",
     "watch": "nodemon && echo '👀 Watching for changes...'",
     "test": "jest --runInBand --verbose && echo '✅ Tests completed!'",
-    "release": "standard-version && echo '📦 Release created!'",
     "prepare": "husky install"
   },
   "files": [
