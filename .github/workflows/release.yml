@@ -43,6 +43,15 @@ jobs:
           config-file: .release-please-config.json
           token: ${{ secrets.GH_PAT }}
 
+      - name: ✏️ Rename PR Title
+        run: |
+          PR_NUMBER=$(gh pr list --state open --json number --jq '.[0].number')
+          if [[ -n "$PR_NUMBER" ]]; then
+            gh pr edit "$PR_NUMBER" --title "🚀 Release v$(node -p "require('./package.json').version") - Automated Update"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+
       - name: 🤖 Auto Merge Release PR
         run: |
           gh pr merge --auto --squash "$(gh pr list --state open --json number --jq '.[0].number')" --repo ${{ github.repository }}

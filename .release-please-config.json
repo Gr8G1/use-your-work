@@ -1,6 +1,5 @@
 {
-  "release-type": "simple",
-  "pull-request-title-pattern": "🚀 Release v${version} - Automated Update",
+  "release-type": "node",
   "bump-minor-pre-major": true,
   "changelog-sections": {
     "Breaking Changes": ["Break:"],
