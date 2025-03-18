@@ -20,7 +20,6 @@
     "watch": "nodemon && echo '👀 Watching for changes...'",
     "test": "jest --runInBand --verbose && echo '✅ Tests completed!'",
     "release": "standard-version && echo '📦 Release created!'",
-    "publish": "npm publish --access public && echo '🚀 Package published to NPM!'",
     "prepare": "husky install"
   },
   "files": [

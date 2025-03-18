@@ -1,0 +1,10 @@
+{
+  "release-type": "simple",
+  "pull-request-title-pattern": "🚀 Release v${version} - Automated Update",
+  "bump-minor-pre-major": true,
+  "changelog-sections": {
+    "Breaking Changes": ["Break:"],
+    "New Features": ["Feat:"],
+    "Bug Fixes": ["Fix:"]
+  }
+}
